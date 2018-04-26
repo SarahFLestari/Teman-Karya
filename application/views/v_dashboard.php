@@ -13,7 +13,7 @@
     <div class="content">
         <div class="my-50">
             <h2 class="font-w700 text-black mb-10">Selamat Datang,</h2>
-            <h3 class="h5 text-muted mb-0">Rama Aditya Maulana | 1301150034</h3>
+            <h3 class="h5 text-muted mb-0"><?php echo $pegawai->getNamaPgw()?> | <?php echo $pegawai->getNip()?></h3>
         </div>
 
         <!-- Coins -->
@@ -25,7 +25,7 @@
                    </div>
                    <div class="block-content">
                        <p>
-                           <strong class="font-size-h1 text-white">1.258 Pts</strong>
+                           <strong class="font-size-h1 text-white"><?php echo $pegawai->getJumlahPoin()?> Pts</strong>
                        </p>
                    </div>
                </a>

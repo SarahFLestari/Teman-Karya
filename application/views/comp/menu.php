@@ -1,10 +1,10 @@
 <div class="content-side content-side-full">
     <ul class="nav-main">
         <li>
-            <a href="be_pages_dashboard.html"><i class="si si-cup"></i><span class="sidebar-mini-hide">Beranda</span></a>
+            <a href="<?php echo base_url();?>Dashboard"><i class="si si-cup"></i><span class="sidebar-mini-hide">Beranda</span></a>
         </li>
         <li>
-            <a href="be_pages_dashboard.html"><i class="fa fa-info-circle"></i><span class="sidebar-mini-hide">Detail Poin</span></a>
+            <a href="<?php echo base_url();?>Dashboard/poin"><i class="fa fa-info-circle"></i><span class="sidebar-mini-hide">Detail Poin</span></a>
         </li>
          <li>
             <a href="be_pages_dashboard.html"><i class="si si-doc"></i><span class="sidebar-mini-hide">Presensi</span></a>
