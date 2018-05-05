@@ -7,10 +7,10 @@
             <a href="<?php echo base_url();?>Dashboard/poin"><i class="fa fa-info-circle"></i><span class="sidebar-mini-hide">Detail Poin</span></a>
         </li>
          <li>
-            <a href="be_pages_dashboard.html"><i class="si si-doc"></i><span class="sidebar-mini-hide">Presensi</span></a>
+            <a href="<?php echo base_url();?>Dashboard/presensi_pgw"><i class="si si-doc"></i><span class="sidebar-mini-hide">Presensi</span></a>
         </li>
          <li>
-            <a href="be_pages_dashboard.html"><i class="si si-docs"></i><span class="sidebar-mini-hide">Tugas</span></a>
+            <a href="<?php echo base_url();?>Dashboard/tugas_pgw"><i class="si si-docs"></i><span class="sidebar-mini-hide">Tugas</span></a>
         </li>
  <!--        <li>
             <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-flag"></i><span class="sidebar-mini-hide">Error</span></a>

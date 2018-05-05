@@ -33,6 +33,14 @@ class Dashboard extends SI_Controller
         $this->laman('v_poin');
     }
 
+    public function presensi_pgw(){
+        $this->laman('v_presensi_pgw');
+    }
+    public function tugas_pgw(){
+
+        $this->laman('v_tugas_pgw');
+
+    }
     public function login()
     {
         $sess_data = array(
