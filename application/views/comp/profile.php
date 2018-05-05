@@ -42,12 +42,12 @@
                     </a>
                     <ul class="list-inline mt-10">
                         <li class="list-inline-item">
-                            <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="be_pages_generic_profile.html">Rama Aditya Maulana</a>
+                            <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="be_pages_generic_profile.html"><?php echo $this->session->userdata("nama")?></a>
                         </li>
                         <li class="mb-10">
                             <!-- Layout API, functionality initialized in Codebase() -> uiApiLayout() -->
                             <a class="link-effect text-dual-primary-dark" data-toggle="layout" data-action="sidebar_style_inverse_toggle" href="javascript:void(0)">
-                                Pegawai
+                                <?php echo $this->session->userdata("status");?>
                             </a>
                         </li>
                         <li class="list-inline-item">

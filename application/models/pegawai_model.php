@@ -16,6 +16,23 @@ class pegawai_model extends CI_Model
     private $jumlah_tugas;
 
     /**
+     * pegawai_model constructor.
+     * @param $nip
+     * @param $nama_pgw
+     * @param $no_telp
+     * @param $email
+     * @param $jumlah_poin
+     * @param $jumlah_tugas
+     */
+    public function __construct()
+    {
+
+        parent::__construct();
+        $this->jumlah_poin = 111;
+        $this->jumlah_tugas = 0;
+    }
+
+    /**
      * @return mixed
      */
     public function getJumlahPoin()
@@ -48,24 +65,25 @@ class pegawai_model extends CI_Model
     }
 
     public function getPegawai($nip){
-        $this->db->where("NIP",$nip);
+        $this->db->where("pegawai.NIP",$nip);
+        $this->db->join("pengguna","pengguna.NIP = pegawai.NIP");
         $query = $this->db->get("pegawai");
         if ($query->num_rows() > 0){
             $hasil = $query->result_array()[0];
             $this->nip = $hasil['NIP'];
-            $this->nama_pgw = $hasil['nama_pgw'];
+            $this->nama_pgw = $hasil['nama'];
             $this->no_telp = $hasil['no_telp'];
             $this->email = $hasil['email'];
         }
         $this->db->where("NIP",$nip);
-        $query = $this->db->query("SELECT sum(jum_poin) as jum from poin");
-        if ($query->num_rows() == 0){
+        $query = $this->db->query("SELECT sum(jum_poin) as jum from detil_poin JOIN poin using (id_poin)");
+
+        if ($query->result_array()[0]['jum'] == NULL){
             $this->jumlah_poin = 0;
         }
         else {
             $this->jumlah_poin = $query->result_array()[0]['jum'];
         }
-
 //        print_r($query->result_array());
     }
 
