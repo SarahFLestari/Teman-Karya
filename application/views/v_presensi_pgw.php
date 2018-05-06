@@ -5,6 +5,7 @@
     </div>
     <!-- END Sidebar Scroll Container -->
 </nav>
+<?php $this->load->view('comp/header');?>
 <main id="main-container">
     <!-- Page Content -->
     <div class="content">

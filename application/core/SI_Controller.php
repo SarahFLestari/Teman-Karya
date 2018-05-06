@@ -5,4 +5,10 @@
 			$this->load->view('template/index', $data, FALSE);
 
 		}
-	}
+		public function laman_spv($konten, $data = NULL){
+			$data['konten'] = $this->load->view($konten, $data, TRUE);
+			$this->load->view('template/index_spv', $data, FALSE);
+
+		}
+}
+?>

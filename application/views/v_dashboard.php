@@ -8,6 +8,7 @@
 <!-- END Sidebar -->
 
 <!-- Main Container -->
+<?php $this->load->view('comp/header');?>
 <main id="main-container">
     <!-- Page Content -->
     <div class="content">
