@@ -1,16 +1,10 @@
 <div class="content-side content-side-full">
     <ul class="nav-main">
         <li>
-            <a href="<?php echo base_url();?>Dashboard"><i class="si si-cup"></i><span class="sidebar-mini-hide">Beranda</span></a>
-        </li>
-        <li>
-            <a href="<?php echo base_url();?>Dashboard/poin"><i class="fa fa-info-circle"></i><span class="sidebar-mini-hide">Detail Poin</span></a>
+            <a href="<?php echo base_url();?>Supervisor"><i class="si si-cup"></i><span class="sidebar-mini-hide">Beranda</span></a>
         </li>
          <li>
-            <a href="<?php echo base_url();?>Dashboard/presensi_pgw"><i class="si si-doc"></i><span class="sidebar-mini-hide">Presensi</span></a>
-        </li>
-         <li>
-            <a href="<?php echo base_url();?>Dashboard/tugas_pgw"><i class="si si-docs"></i><span class="sidebar-mini-hide">Tugas</span></a>
+            <a href="<?php echo base_url();?>Supervisor/list_pgw"><i class="fa fa-info-circle"></i><span class="sidebar-mini-hide">Keluar</span></a>
         </li>
  <!--        <li>
             <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-flag"></i><span class="sidebar-mini-hide">Error</span></a>

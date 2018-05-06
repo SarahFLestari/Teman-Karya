@@ -1,16 +1,19 @@
 <div id="page-container" class="sidebar-o side-scroll page-header-modern main-content-boxed">
-    <?php $this->load->view('comp/profile');?>
-       <?php $this->load->view('comp/menu');?>
+    <?php $this->load->view('comp/spv/profile_spv');?>
+       <?php $this->load->view('comp/spv/menu');?>
         <!-- Sidebar Content -->
     </div>
     <!-- END Sidebar Scroll Container -->
 </nav>
- <?php $this->load->view('comp/header');?>
+<!-- END Sidebar -->
+
+<!-- Main Container -->
+<?php $this->load->view('comp/header');?>
 <main id="main-container">
     <!-- Page Content -->
     <div class="content">
         <div class="my-50">
-            <h2 class="font-w700 text-black mb-10">Daftar Tugas</h2>
+            <h2 class="font-w700 text-black mb-10">Daftar Pegawai</h2>
             <h3 class="h5 text-muted mb-0"></h3>
         </div>
 
@@ -21,9 +24,9 @@
               <thead>
                   <tr>
                       <th class="text-center" style="width: 5%;">No</th>
-                      <th style="width: 10%;">Tanggal Mulai</th>
-                      <th style="width: 10%;">Tanggal Selesai</th>
-                      <th class="d-none d-sm-table-cell" style="width: 25%;">Tugas</th>
+                      <th style="width: 10%;">Nama Pegawai</th>
+                      <th style="width: 10%;">Departemen</th>
+                      <th class="d-none d-sm-table-cell" style="width: 5%;">Progress</th>
                       <th class="d-none d-sm-table-cell" style="width: 10%;">Aksi</th>
                   </tr>
               </thead>
