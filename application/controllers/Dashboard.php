@@ -12,6 +12,8 @@ class Dashboard extends SI_Controller
 
         parent::__construct();
         $this->load->model("pegawai_model");
+        $this->load->model("detilpoin_model");
+        $this->load->model("presensi_model");
     }
 
     public function index()
@@ -29,13 +31,42 @@ class Dashboard extends SI_Controller
 
     public function poin()
     {
-
-        $this->laman('v_poin');
+        $daftar_poin = array();
+        $nip = $this->session->userdata("NIP");
+        $this->db->where("NIP",$nip);
+        $query = $this->db->query("SELECT * FROM detil_poin JOIN poin using (id_poin) JOIN kategori using (id_kategori)");
+        if ($query->num_rows() == 0){
+            $daftar_poin = NULL;
+        }
+        else{
+            //$jumlah_poin, $kategori, $keterangan, $tanggal
+            foreach ($query->result_array() as $item) {
+                $poin = new detilpoin_model();
+                $poin->setDetilPoin($item['jum_poin'],$item['nama_kategori'],$item['ket_poin'],$item['tanggal']);
+                array_push($daftar_poin,$poin);
+            }
+        }
+        $data['daftar_poin'] = $daftar_poin;
+        $this->laman('v_poin',$data);
     }
 
     public function presensi_pgw(){
-        $this->laman('v_presensi_pgw');
+        $daftarpresensi = array();
+        $this->db->where("NIP",$this->session->userdata("NIP"));
+        $query = $this->db->get("tb_presensi");
+        foreach ($query->result_array() as $item) {
+            $presensi = new presensi_model();
+            $kategori = "Keluar";
+            if ($item['kodepresensi'] == 1){
+                $kategori = "Masuk";
+            }
+            $presensi->setPresensi($item['tanggal'],$kategori,$item['jampresensi']);
+            array_push($daftarpresensi,$presensi);
+        }
+        $data['daftarpresensi'] = $daftarpresensi;
+        $this->laman('v_presensi_pgw',$data);
     }
+
     public function tugas_pgw(){
 
         $this->laman('v_tugas_pgw');
@@ -45,9 +76,9 @@ class Dashboard extends SI_Controller
     {
         $sess_data = array(
             'logged_in' => TRUE,
-            'NIP' => 1301150034,
+            'NIP' => 2018050401,
             'status' => "Pegawai",
-            'nama' => "Rama Aditya Maulana"
+            'nama' => "Muhammad Fadhlan Supriadi"
         );
         $this->session->set_userdata($sess_data);
         redirect('Dashboard');

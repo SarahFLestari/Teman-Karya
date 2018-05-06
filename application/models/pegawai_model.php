@@ -28,7 +28,7 @@ class pegawai_model extends CI_Model
     {
 
         parent::__construct();
-        $this->jumlah_poin = 111;
+        $this->jumlah_poin = 0;
         $this->jumlah_tugas = 0;
     }
 
@@ -65,16 +65,17 @@ class pegawai_model extends CI_Model
     }
 
     public function getPegawai($nip){
-        $this->db->where("pegawai.NIP",$nip);
-        $this->db->join("pengguna","pengguna.NIP = pegawai.NIP");
-        $query = $this->db->get("pegawai");
+        $this->db->where("tb_pegawai.NIP",$nip);
+        $this->db->join("tb_pegawai","tb_user.NIP = tb_pegawai.NIP");
+        $query = $this->db->get("tb_user");
         if ($query->num_rows() > 0){
             $hasil = $query->result_array()[0];
             $this->nip = $hasil['NIP'];
             $this->nama_pgw = $hasil['nama'];
-            $this->no_telp = $hasil['no_telp'];
-            $this->email = $hasil['email'];
+            $this->no_telp = $hasil['nohp'];
+            $this->email = "";
         }
+
         $this->db->where("NIP",$nip);
         $query = $this->db->query("SELECT sum(jum_poin) as jum from detil_poin JOIN poin using (id_poin)");
 

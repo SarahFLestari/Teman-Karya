@@ -27,26 +27,18 @@
                   </tr>
               </thead>
               <tbody>
+                 <?php $index = 1; foreach ($daftar_poin as $obj):?>
                   <tr>
-                      <td class="text-center">1</td>
-                      <td class="font-w600"><span class="badge badge-success">100</span></td>
-                      <td class="d-none d-sm-table-cell">Kedisiplinan</td>
+                      <td class="text-center"><?php echo $index?></td>
+                      <td class="font-w600"><span class="badge badge-success"><?php echo $obj->getJumlahPoin();?></span></td>
+                      <td class="d-none d-sm-table-cell"><?php echo $obj->getKategori();?></td>
                       <td class="d-none d-sm-table-cell">
-                          Datang tepat waktu
+                          <?php echo $obj->getKeterangan();?>
                       </td>
-                     <td><?php echo date("d-m-Y");?></td>
+                     <td><?php echo $obj->getTanggal();?></td>
                   </tr>
-                  <tr>
-                      <td class="text-center">2</td>
-                      <td class="font-w600"><span class="badge badge-success">80</span></td>
-                      <td class="d-none d-sm-table-cell">Manajemen Proyek</td>
-                      <td class="d-none d-sm-table-cell">
-                          Menyelesaikan laporan
-                      </td>
-                       <td><?php echo date("d-m-Y");?></td>
-                     
-                  </tr>
-                  
+                 <?php $index++?>
+                 <?php endforeach;?>
               </tbody>
           </table>
         </div>

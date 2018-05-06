@@ -21,24 +21,20 @@
                   <tr>
                       <th class="text-center" style="width: 5%;">No</th>
                       <th style="width: 13%;">Tanggal</th>
-                      <th class="d-none d-sm-table-cell" style="width: 15%;">Waktu Masuk</th>
-                      <th class="d-none d-sm-table-cell" style="width: 45%;">Waktu Keluar</th>
+                      <th class="d-none d-sm-table-cell" style="width: 15%;">Kategori</th>
+                      <th class="d-none d-sm-table-cell" style="width: 45%;">Jam</th>
                   </tr>
               </thead>
               <tbody>
+              <?php $index = 1; foreach ($daftarpresensi as $item) :?>
                   <tr>
-                      <td class="text-center">1</td>
-                      <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                      <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                      <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?>   </td>
+                      <td class="text-center"><?php echo $index?></td>
+                      <td class="font-w600"><?php echo $item->getTanggal();?></td>
+                      <td class="d-none d-sm-table-cell"><?php echo $item->getKategori();?></td>
+                      <td class="d-none d-sm-table-cell"><?php echo $item->getJam();?></td>
                   </tr>
-                  <tr>
-                      <td class="text-center">2</td>
-                      <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                      <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                      <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                  </tr>
-                  
+              <?php $index++; endforeach;?>
+
               </tbody>
           </table>
         </div>
