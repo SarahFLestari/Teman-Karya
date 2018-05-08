@@ -26,7 +26,6 @@ class pegawai_model extends CI_Model
      */
     public function __construct()
     {
-
         parent::__construct();
         $this->jumlah_poin = 0;
         $this->jumlah_tugas = 0;
@@ -75,7 +74,6 @@ class pegawai_model extends CI_Model
             $this->no_telp = $hasil['nohp'];
             $this->email = "";
         }
-
         $this->db->where("NIP",$nip);
         $query = $this->db->query("SELECT sum(jum_poin) as jum from detil_poin JOIN poin using (id_poin)");
 
@@ -85,6 +83,18 @@ class pegawai_model extends CI_Model
         else {
             $this->jumlah_poin = $query->result_array()[0]['jum'];
         }
+
+        $this->db->where("NIP",$nip);
+        $query = $this->db->query("SELECT count(id_detilproyek) as jum from detil_proyek");
+
+        if ($query->result_array()[0]['jum'] == NULL){
+            $this->jumlah_tugas = 0;
+        }
+        else {
+            $this->jumlah_tugas = $query->result_array()[0]['jum'];
+        }
+
+
 //        print_r($query->result_array());
     }
 
