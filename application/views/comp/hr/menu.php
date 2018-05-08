@@ -1,12 +1,6 @@
 <div class="content-side content-side-full">
     <ul class="nav-main">
-        <li>
-            <a href="<?php echo base_url();?>HR"><i class="si si-cup"></i><span class="sidebar-mini-hide">Beranda</span></a>
-        </li>
-         <li>
-            <a href="<?php echo base_url();?>"><i class="fa fa-sign-out"></i><span class="sidebar-mini-hide">Keluar</span></a>
-        </li>
- <!--        <li>
+  <!--        <li>
             <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-flag"></i><span class="sidebar-mini-hide">Error</span></a>
             <ul>
                 <li>

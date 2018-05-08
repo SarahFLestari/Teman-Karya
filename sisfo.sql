@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08 Mei 2018 pada 19.50
+-- Generation Time: 08 Mei 2018 pada 20.22
 -- Versi Server: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -112,10 +112,17 @@ INSERT INTO `histori_penukaran` (`id_penukaran`, `NIP`, `id_penawaran`, `waktu_p
 --
 
 CREATE TABLE `hrd` (
-  `id_hrd` varchar(15) NOT NULL,
+  `id_hrd` int(11) NOT NULL,
   `NIP` int(10) NOT NULL,
   `position` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `hrd`
+--
+
+INSERT INTO `hrd` (`id_hrd`, `NIP`, `position`) VALUES
+(1, 2018050403, 'Admin HR');
 
 -- --------------------------------------------------------
 
@@ -493,7 +500,8 @@ ALTER TABLE `histori_penukaran`
 -- Indexes for table `hrd`
 --
 ALTER TABLE `hrd`
-  ADD PRIMARY KEY (`NIP`);
+  ADD PRIMARY KEY (`id_hrd`),
+  ADD KEY `NIP` (`NIP`);
 
 --
 -- Indexes for table `kategori`
@@ -625,6 +633,12 @@ ALTER TABLE `histori_penukaran`
   MODIFY `id_penukaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `hrd`
+--
+ALTER TABLE `hrd`
+  MODIFY `id_hrd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -718,7 +732,7 @@ ALTER TABLE `histori_penukaran`
 -- Ketidakleluasaan untuk tabel `hrd`
 --
 ALTER TABLE `hrd`
-  ADD CONSTRAINT `hrd_ibfk_1` FOREIGN KEY (`NIP`) REFERENCES `admin` (`NIP`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `hrd_ibfk_1` FOREIGN KEY (`NIP`) REFERENCES `tb_pegawai` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `poin`

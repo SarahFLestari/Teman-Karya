@@ -18,8 +18,20 @@ class Utama extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
-		$this->load->view('login');
-	}
+    public function index()
+    {
+        $this->session->sess_destroy();
+        $data['tujuan'] = "Dashboard/login";
+        $this->load->view('login',$data);
+    }
+    public function login_supervisor()
+    {
+        $data['tujuan'] = "Supervisor/login";
+        $this->load->view('login',$data);
+    }
+    public function login_hrd()
+    {
+        $data['tujuan'] = "HR/login";
+        $this->load->view('login',$data);
+    }
 }

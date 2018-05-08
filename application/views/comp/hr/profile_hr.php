@@ -42,7 +42,7 @@
                     </a>
                     <ul class="list-inline mt-10">
                         <li class="list-inline-item">
-                            <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="be_pages_generic_profile.html">Rama Aditya Maulana</a>
+                            <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="be_pages_generic_profile.html"><?php echo $this->session->userdata("nama");?></a>
                         </li>
                         <li class="mb-10">
                             <!-- Layout API, functionality initialized in Codebase() -> uiApiLayout() -->

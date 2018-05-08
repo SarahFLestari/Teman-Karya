@@ -14,7 +14,7 @@
     <div class="content">
         <div class="my-50">
             <h2 class="font-w700 text-black mb-10">Selamat Datang,</h2>
-            <h3 class="h5 text-muted mb-0"><?php //echo $pegawai->getNamaPgw()?> | Manajer HR</h3>
+            <h3 class="h5 text-muted mb-0"><?php echo $this->session->userdata("nama");?> | Manajer HR</h3>
         </div>
 
         <!-- Coins -->
