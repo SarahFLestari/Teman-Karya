@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08 Mei 2018 pada 17.35
+-- Generation Time: 08 Mei 2018 pada 19.50
 -- Versi Server: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -89,8 +89,21 @@ INSERT INTO `detil_proyek` (`id_detilproyek`, `id_proyek`, `NIP`, `progress`) VA
 
 CREATE TABLE `histori_penukaran` (
   `id_penukaran` int(11) NOT NULL,
-  `NIP` int(11) NOT NULL
+  `NIP` int(11) NOT NULL,
+  `id_penawaran` int(11) NOT NULL,
+  `waktu_penukaran` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `histori_penukaran`
+--
+
+INSERT INTO `histori_penukaran` (`id_penukaran`, `NIP`, `id_penawaran`, `waktu_penukaran`) VALUES
+(1, 2018050401, 1, '2018-05-08 17:42:30'),
+(2, 2018050401, 1, '2018-05-08 17:42:30'),
+(3, 2018050401, 1, '2018-05-08 17:42:30'),
+(4, 2018050401, 1, '2018-05-08 17:42:30'),
+(5, 2018050401, 1, '2018-05-08 17:42:30');
 
 -- --------------------------------------------------------
 
@@ -178,9 +191,20 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `penawaran` (
   `id_penawaran` int(11) NOT NULL,
-  `nama_penukaran` text NOT NULL,
-  `harga_poin` int(11) NOT NULL
+  `nama_penawaran` text NOT NULL,
+  `harga_poin` int(11) NOT NULL,
+  `deskripsi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `penawaran`
+--
+
+INSERT INTO `penawaran` (`id_penawaran`, `nama_penawaran`, `harga_poin`, `deskripsi`) VALUES
+(1, 'Liburan ke Bali', 10, 'Liburan bersama keluarga ke pulau dewata bali, menginap di hotel bintang 5 bersama keluarga! Rasakan nikmatnya!'),
+(2, 'Umroh sekeluarga', 500, 'Nikmati perjalanan sekeluarga ke tanah suci mekkah. Temukan suasana religi pada setiap tempat yang dikunjungi.'),
+(3, 'Paket liburan ke Disneyland', 2000, 'Nikmati perjalanan sekeluarga ke disneyland. Temukan wahana menantang pada setiap tempat yang dikunjungi.'),
+(4, 'Wisata ke Pulau Seribu', 50, 'Nikmati perjalanan romantis bersama pasangan ke Pulau seribu, nikmati suasana pulau yang indah dan udara yang bersih bersama pasangan.');
 
 -- --------------------------------------------------------
 
@@ -459,6 +483,13 @@ ALTER TABLE `detil_proyek`
   ADD KEY `id_proyek` (`id_proyek`);
 
 --
+-- Indexes for table `histori_penukaran`
+--
+ALTER TABLE `histori_penukaran`
+  ADD PRIMARY KEY (`id_penukaran`),
+  ADD KEY `id_penawaran` (`id_penawaran`);
+
+--
 -- Indexes for table `hrd`
 --
 ALTER TABLE `hrd`
@@ -588,6 +619,12 @@ ALTER TABLE `detil_proyek`
   MODIFY `id_detilproyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `histori_penukaran`
+--
+ALTER TABLE `histori_penukaran`
+  MODIFY `id_penukaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -597,7 +634,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `penawaran`
 --
 ALTER TABLE `penawaran`
-  MODIFY `id_penawaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_penawaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `penilaians`
@@ -670,6 +707,12 @@ ALTER TABLE `detil_poin`
 ALTER TABLE `detil_proyek`
   ADD CONSTRAINT `detil_proyek_ibfk_1` FOREIGN KEY (`NIP`) REFERENCES `tb_pegawai` (`nip`),
   ADD CONSTRAINT `detil_proyek_ibfk_2` FOREIGN KEY (`id_proyek`) REFERENCES `proyek` (`id_proyek`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `histori_penukaran`
+--
+ALTER TABLE `histori_penukaran`
+  ADD CONSTRAINT `histori_penukaran_ibfk_1` FOREIGN KEY (`id_penawaran`) REFERENCES `penawaran` (`id_penawaran`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `hrd`
