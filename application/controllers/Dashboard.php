@@ -3,10 +3,6 @@
 class Dashboard extends SI_Controller
 {
 
-    // function __construct(argument)
-    // {
-    // 	# code...
-    // }
     public function __construct()
     {
 
