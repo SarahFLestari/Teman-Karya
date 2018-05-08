@@ -11,9 +11,6 @@ class Supervisor extends SI_Controller{
     {
         $this->laman_spv('spv/dash');
     }
-    public function list_pgw()
-    {
-        // $this->laman_spv('spv/list_pgw');
-    }
+
 }
 ?>
