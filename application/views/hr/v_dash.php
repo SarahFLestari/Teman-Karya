@@ -32,67 +32,14 @@
                 </thead>
                 <tbody>
                 <!-- Start Foreach -->
-                <tr class="listpts">
-                    <td class="text-center">1</td>
-                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
-                </tr>
+                <?php $index = 1; foreach ($daftarPoin as $item):?>
                 <tr>
-                    <td class="text-center">2</td>
-                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
+                    <td class="text-center"><?php echo $index;?></td>
+                    <td class="font-w600"><?php echo $item['nama_pg'];?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo $item['divisi'];?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo $item['jumlah'];?> </td>
                 </tr>
-                <tr>
-                    <td class="text-center">3</td>
-                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
-                </tr>
-                <tr>
-                    <td class="text-center">4</td>
-                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
-                </tr>
-                <tr>
-                    <td class="text-center">5</td>
-                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
-                </tr>
-                <tr>
-                    <td class="text-center">6</td>
-                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
-                </tr>
-                <tr>
-                    <td class="text-center">7</td>
-                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
-                </tr>
-                <tr>
-                    <td class="text-center">8</td>
-                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
-                </tr>
-                <tr>
-                    <td class="text-center">9</td>
-                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
-                </tr>
-                <tr>
-                    <td class="text-center">10</td>
-                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
-                </tr>
-
+                <?php $index++; endforeach;?>
                 <!-- End Foreach -->
                 </tbody>
             </table>
