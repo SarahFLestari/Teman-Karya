@@ -37,10 +37,6 @@ class Supervisor extends SI_Controller{
         $data['daftarRekap'] = $query->result_array();
         $this->laman_spv('spv/dash',$data);
     }
-    public function list_pgw()
-    {
-        // $this->laman_spv('spv/list_pgw');
-    }
     public function login(){
 
         $sess_data = array(
@@ -53,7 +49,5 @@ class Supervisor extends SI_Controller{
         $this->session->set_userdata($sess_data);
         redirect("Supervisor");
     }
-
-
 }
 ?>

@@ -15,6 +15,9 @@
         <li>
             <a href="<?php echo base_url();?>Dashboard/tukar_poin"><i class="fa fa-money"></i><span class="sidebar-mini-hide">Penukaran Poin</span></a>
         </li>
+        <li>
+            <a href="<?php echo base_url();?>Dashboard/histori_penukaran"><i class="fa fa-history"></i><span class="sidebar-mini-hide">Histori Penukaran</span></a>
+        </li>
  <!--        <li>
             <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-flag"></i><span class="sidebar-mini-hide">Error</span></a>
             <ul>

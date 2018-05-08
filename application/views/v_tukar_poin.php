@@ -23,104 +23,47 @@
                 <div class="block block-themed" style="width: 63rem;">
                     <div class="block-header bg-info">
                         <h3 class="block-title">Cara Penukaran</h3>
-                    </div>
-                    <div class="block-content">
+                    </div><div class="block-content">
                         <ol>
                             <li>Pilih Penawaran yang Anda inginkan dengan menekan tombol Tukar.</li>
-                            <li>Cetak / Tunjukkan Bukti Penukaran kepada pihak HRD.</li>
+                            <li>Pada akhir bulan, silahkan melakukan konfirmasi kepada HRD.</li>
                         </ol>
                     </div>
+                    <div class="block-header bg-success">
+                        <br>
+                        <h3 class="block-title">Poin Anda : <?php echo $poin;?></h3>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <?php $index = 0; foreach ($daftarPenawaran as $item) :?>
+
+        <?php if ($index % 3 == 0):?>
         <div class="row gutters-tiny  mb-10">
+        <?php endif;?>
             <div class="col-3 col-md-3 col-xl-3 mr-10">
                 <div class="block">
                     <div class="block-header block-header-default">
-                        <h3 class="block-title">Paket Liburaan Weekend</h3>
+                        <h3 class="block-title"><?php echo $item->getNamaPenawaran();?></h3>
                     </div>
                     <div class="block-content">
-                        <p>Dapatkan subsidi liburan weekend s.d. Rp2,5 Juta ke destinasi wisata favorit !</p>
-                        <button type="button" class="btn btn-outline-info min-width-125 mb-10">Tukar poin mu Sekarang</button>
+                        <p><?php echo $item->getDeskripsi();?></p>
+                        <a href="<?php echo base_url();?>Poin/tukarPoin/<?php echo $item->getId()?>"  class="btn btn-outline-info min-width-125 mb-10">Tukar poin mu Sekarang</a>
                     </div>
-                    <div class="block-content block-content-full block-content-sm bg-pulse font-size-sm text-white">
-                        1500 Pts | <i class="fa fa-clock-o"></i> Berlaku Hingga: 28 Juni 2018
+                    <div class="block-content block-content-full block-content-sm bg-pulse font-size-sm text-white text-center">
+                        <?php echo $item->getJumlahPoin()?> Pts
                     </div>
                 </div>
             </div>
-            <div class="col-3 col-md-3 col-xl-3 mr-10">
-                <div class="block">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">Paket Liburaan Weekend</h3>
-                    </div>
-                    <div class="block-content">
-                        <p>Dapatkan subsidi liburan weekend s.d. Rp2,5 Juta ke destinasi wisata favorit !</p>
-                        <button type="button" class="btn btn-outline-info min-width-125 mb-10">Tukar poin mu Sekarang</button>
-                    </div>
-                    <div class="block-content block-content-full block-content-sm bg-pulse font-size-sm text-white">
-                        1500 Pts | <i class="fa fa-clock-o"></i> Berlaku Hingga: 28 Juni 2018
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 col-md-3 col-xl-3 mr-10">
-                <div class="block">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">Paket Liburaan Weekend</h3>
-                    </div>
-                    <div class="block-content">
-                        <p>Dapatkan subsidi liburan weekend s.d. Rp2,5 Juta ke destinasi wisata favorit !</p>
-                        <button type="button" class="btn btn-outline-info min-width-125 mb-10">Tukar poin mu Sekarang</button>
-                    </div>
-                    <div class="block-content block-content-full block-content-sm bg-pulse font-size-sm text-white">
-                        1500 Pts | <i class="fa fa-clock-o"></i> Berlaku Hingga: 28 Juni 2018
-                    </div>
-                </div>
-            </div>
+        <?php if ($index % 3 == 0 and $index > 2):?>
         </div>
-         <div class="row gutters-tiny  mb-10">
-            <div class="col-3 col-md-3 col-xl-3 mr-10">
-                <div class="block">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">Paket Liburaan Weekend</h3>
-                    </div>
-                    <div class="block-content">
-                        <p>Dapatkan subsidi liburan weekend s.d. Rp2,5 Juta ke destinasi wisata favorit !</p>
-                        <button type="button" class="btn btn-outline-info min-width-125 mb-10">Tukar poin mu Sekarang</button>
-                    </div>
-                    <div class="block-content block-content-full block-content-sm bg-pulse font-size-sm text-white">
-                        1500 Pts | <i class="fa fa-clock-o"></i> Berlaku Hingga: 28 Juni 2018
-                    </div>
-                </div>
-            </div>
-             <div class="col-3 col-md-3 col-xl-3 mr-10">
-                 <div class="block">
-                     <div class="block-header block-header-default">
-                         <h3 class="block-title">Paket Liburaan Weekend</h3>
-                     </div>
-                     <div class="block-content">
-                         <p>Dapatkan subsidi liburan weekend s.d. Rp2,5 Juta ke destinasi wisata favorit !</p>
-                         <button type="button" class="btn btn-outline-info min-width-125 mb-10">Tukar poin mu Sekarang</button>
-                     </div>
-                     <div class="block-content block-content-full block-content-sm bg-pulse font-size-sm text-white">
-                         1500 Pts | <i class="fa fa-clock-o"></i> Berlaku Hingga: 28 Juni 2018
-                     </div>
-                 </div>
-             </div>
-             <div class="col-3 col-md-3 col-xl-3 mr-10">
-                 <div class="block">
-                     <div class="block-header block-header-default">
-                         <h3 class="block-title">Paket Liburaan Weekend</h3>
-                     </div>
-                     <div class="block-content">
-                         <p>Dapatkan subsidi liburan weekend s.d. Rp2,5 Juta ke destinasi wisata favorit !</p>
-                         <button type="button" class="btn btn-outline-info min-width-125 mb-10">Tukar poin mu Sekarang</button>
-                     </div>
-                     <div class="block-content block-content-full block-content-sm bg-pulse font-size-sm text-white">
-                         1500 Pts | <i class="fa fa-clock-o"></i> Berlaku Hingga: 28 Juni 2018
-                     </div>
-                 </div>
-             </div>
+        <?php endif;?>
+        <?php $index++;endforeach;?>
+        <?php if ($index % 3 != 0 and $index > 2):?>
         </div>
+        <?php endif;?>
+
 
     </div>
     <!-- END Page Content -->
