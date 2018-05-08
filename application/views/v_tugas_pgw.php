@@ -29,16 +29,18 @@
               </thead>
               <tbody>
                 <!-- Start Foreach -->
+                <?php $index = 1; foreach ($daftarTugas as $item):?>
+
                   <tr>
-                      <td class="text-center">1</td>
-                      <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                      <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                      <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?>   </td>
+                      <td class="text-center"><?php echo $index?></td>
+                      <td class="font-w600"><?php echo $item->getTanggalMulai();?></td>
+                      <td class="d-none d-sm-table-cell"><?php echo $item->getTanggalSelesai();?></td>
+                      <td class="d-none d-sm-table-cell"><?php echo $item->getTugas();?></td>
                       <td class="d-none d-sm-table-cell">
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#tskDetail<?php //echo $id;?>">Detail</button> 
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#tskDetail<?php echo $index;?>">Detail</button>
                       </td>
                   </tr>
-                  <div class="modal fade" id="tskDetail<?php //echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="tskDetail<?php echo $index;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -48,17 +50,19 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <?php $this->load->view('form/pgw/form_tasks');?>
+                          <?php
+                          $data['tugas'] = $item;
+                          $this->load->view('form/pgw/form_tasks',$data);?>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="submit" class="btn btn-primary">Save changes</button>
                           <?php echo form_close();?>
                         </div>
                       </div>
                     </div>
                   </div>
-
+                <?php $index++; endforeach;?>
                   <!-- End Foreach -->
               </tbody>
           </table>

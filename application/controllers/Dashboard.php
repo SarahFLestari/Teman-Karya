@@ -14,6 +14,7 @@ class Dashboard extends SI_Controller
         $this->load->model("pegawai_model");
         $this->load->model("detilpoin_model");
         $this->load->model("presensi_model");
+        $this->load->model("tugas_model");
     }
 
     public function index()
@@ -68,9 +69,16 @@ class Dashboard extends SI_Controller
     }
 
     public function tugas_pgw(){
-
-        $this->laman('v_tugas_pgw');
-
+        $this->db->where("NIP","2018050401");
+        $query = $this->db->query("SELECT * FROM `proyek` JOIN detil_proyek using (id_detilproyek)");
+        $daftarTugas = array();
+        foreach ($query->result_array() as $item) {
+            $tugas = new tugas_model();
+            $tugas->setTugasModel($item['id_detilproyek'],$item['tanggal_mulai'],$item['tanggal_selesai'],$item['nama_proyek'],$item['deskripsi'],$item['progress']);
+            array_push($daftarTugas,$tugas);
+        }
+        $data['daftarTugas'] = $daftarTugas;
+        $this->laman('v_tugas_pgw',$data);
     }
     public function login()
     {

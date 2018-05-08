@@ -26,7 +26,6 @@ class pegawai_model extends CI_Model
      */
     public function __construct()
     {
-
         parent::__construct();
         $this->jumlah_poin = 0;
         $this->jumlah_tugas = 0;
