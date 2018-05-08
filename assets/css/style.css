@@ -44,3 +44,27 @@ div#DataTables_Table_0_filter {
     background: url('assets/img/running.png');
     cursor: pointer; /* Cursor on hover */
 }
+.hrpts tr:nth-child(1) {
+    background: gold;
+    color:#000;
+    font-weight:bold;
+}
+.hrpts tr:nth-child(2) {
+    background: #FFA726;
+    color:#000;
+    font-weight:bold;
+}
+.hrpts tr:nth-child(3) {
+    background: #F44336;
+    color:#FFF;
+    font-weight:bold;
+}
+.hrpts tr:nth-child(4){
+    background: #80DEEA;
+    font-weight:bold;
+}
+.hrpts tr:nth-child(5){
+    background: #795548;
+    color:#FFF;
+    font-weight:bold;
+}

@@ -21,6 +21,14 @@ var BeTableDatatables = function() {
             autoWidth: false
         });
     };
+    var hrPoint = function() {
+        jQuery('.hrpts').dataTable({
+            columnDefs: [ { orderable: false, targets: [ 3 ] } ],
+            pageLength: 10,
+            lengthMenu: [[10,20,40,60,80,100], [10,20,40,60,80,100]],
+            autoWidth: false
+        });
+    };
 
     // Init full extra DataTable, for more examples you can check out https://www.datatables.net/
     var initDataTableFullPagination = function() {
@@ -56,6 +64,7 @@ var BeTableDatatables = function() {
 
             // Init Datatables
             initDataTableSimple();
+            hrPoint();
             initDataTableFull();
             initDataTableFullPagination();
         }

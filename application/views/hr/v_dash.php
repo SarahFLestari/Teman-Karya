@@ -21,67 +21,78 @@
         <div class="content block block-fx-shadow poin">
             <h1> <i class="si si-trophy"></i> Leaderboard</h1>
             <!-- DataTables init on table by adding .js-dataTable-full class, functionality initialized in js/pages/be_tables_datatables.js -->
-            <table class="table table-bordered table-striped table-vcenter js-dataTable-full mb-10">
+            <table class="table table-bordered table-vcenter hrpts mb-10" style="border-collapse: collapse !important;">
                 <thead>
-                <tr>
-                    <th class="text-center" style="width: 5%;">No</th>
+                <tr style="background: transparent;">
+                    <th class="text-center" style="width: 1%;">RANK</th>
                     <th style="width: 10%;">Nama Pegawai</th>
                     <th style="width: 10%;">Departemen</th>
-                    <th class="d-none d-sm-table-cell" style="width: 5%;">Progress</th>
-                    <th class="d-none d-sm-table-cell" style="width: 10%;">Aksi</th>
+                    <th class="d-none d-sm-table-cell" style="width: 5%;">Jumlah Poin</th>
                 </tr>
                 </thead>
                 <tbody>
                 <!-- Start Foreach -->
-                <tr>
+                <tr class="listpts">
                     <td class="text-center">1</td>
                     <td class="font-w600"><?php echo date("d-m-Y");?></td>
                     <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?>   </td>
-                    <td class="d-none d-sm-table-cell">
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#poinDetail<?php //echo $id;?>">Poin</button>
-                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#tskDetail<?php //echo $id;?>">Progress</button>
-                    </td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
                 </tr>
-                <div class="modal fade" id="poinDetail<?php //echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Pemberian Poin</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <?php $this->load->view('form/spv/form_poin');?>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                                <?php echo form_close();?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <tr>
+                    <td class="text-center">2</td>
+                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
+                </tr>
+                <tr>
+                    <td class="text-center">3</td>
+                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
+                </tr>
+                <tr>
+                    <td class="text-center">4</td>
+                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
+                </tr>
+                <tr>
+                    <td class="text-center">5</td>
+                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
+                </tr>
+                <tr>
+                    <td class="text-center">6</td>
+                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
+                </tr>
+                <tr>
+                    <td class="text-center">7</td>
+                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
+                </tr>
+                <tr>
+                    <td class="text-center">8</td>
+                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
+                </tr>
+                <tr>
+                    <td class="text-center">9</td>
+                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
+                </tr>
+                <tr>
+                    <td class="text-center">10</td>
+                    <td class="font-w600"><?php echo date("d-m-Y");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
+                    <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?> </td>
+                </tr>
 
-                <div class="modal fade" id="tskDetail<?php //echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Progress {nama dari DB}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <?php $this->load->view('spv/v_progress');?>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- End Foreach -->
                 </tbody>
             </table>
