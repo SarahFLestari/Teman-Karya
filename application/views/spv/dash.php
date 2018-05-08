@@ -38,10 +38,11 @@
                       <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
                       <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?>   </td>
                       <td class="d-none d-sm-table-cell">
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#tskDetail<?php //echo $id;?>">Poin</button> 
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#poinDetail<?php //echo $id;?>">Poin</button> 
+                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#tskDetail<?php //echo $id;?>">Progress</button> 
                       </td>
                   </tr>
-                  <div class="modal fade" id="tskDetail<?php //echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="poinDetail<?php //echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -62,6 +63,24 @@
                     </div>
                   </div>
 
+                  <div class="modal fade" id="tskDetail<?php //echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Progress {nama dari DB}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                           <?php $this->load->view('spv/v_progress');?>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <!-- End Foreach -->
               </tbody>
           </table>

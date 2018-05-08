@@ -55,3 +55,5 @@
                <script src="<?php echo base_url();?>assets/js/pages/be_tables_datatables.js"></script>
         </body>
     </html>
+
+  
