@@ -38,7 +38,7 @@
                    </div>
                    <div class="block-content">
                        <p>
-                           <strong class="font-size-h1 text-white">1.258 Tugas</strong>
+                           <strong class="font-size-h1 text-white"><?php echo $pegawai->getJumlahTugas()?>  Tugas</strong>
                        </p>
                    </div>
                </a>
