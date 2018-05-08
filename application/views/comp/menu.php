@@ -12,6 +12,9 @@
          <li>
             <a href="<?php echo base_url();?>Dashboard/tugas_pgw"><i class="si si-docs"></i><span class="sidebar-mini-hide">Tugas</span></a>
         </li>
+        <li>
+            <a href="<?php echo base_url();?>Dashboard/tukar_poin"><i class="fa fa-money"></i><span class="sidebar-mini-hide">Penukaran Poin</span></a>
+        </li>
  <!--        <li>
             <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-flag"></i><span class="sidebar-mini-hide">Error</span></a>
             <ul>

@@ -87,4 +87,7 @@ class Dashboard extends SI_Controller
         $this->session->set_userdata($sess_data);
         redirect('Dashboard');
     }
+    public function tukar_poin(){
+        $this->laman('v_tukar_poin');
+    }
 }
