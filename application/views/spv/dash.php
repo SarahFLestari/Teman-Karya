@@ -14,7 +14,7 @@
     <div class="content">
         <div class="my-50">
             <h2 class="font-w700 text-black mb-10">Selamat Datang,</h2>
-            <h3 class="h5 text-muted mb-0"><?php //echo $pegawai->getNamaPgw()?> | Supervisor</h3>
+            <h3 class="h5 text-muted mb-0"><?php echo $this->session->userdata("nama")?> | <?php echo $this->session->userdata("status")?></h3>
         </div>
 
         <!-- Coins -->
@@ -24,25 +24,28 @@
               <thead>
                   <tr>
                       <th class="text-center" style="width: 5%;">No</th>
+                      <th class="text-center" style="width: 3%;">NIP</th>
                       <th style="width: 10%;">Nama Pegawai</th>
-                      <th style="width: 10%;">Departemen</th>
+                      <th style="width: 10%;">Divisi</th>
                       <th class="d-none d-sm-table-cell" style="width: 5%;">Progress</th>
                       <th class="d-none d-sm-table-cell" style="width: 10%;">Aksi</th>
                   </tr>
               </thead>
               <tbody>
                 <!-- Start Foreach -->
+                <?php $index = 1;foreach ($daftarRekap as $item):?>
                   <tr>
-                      <td class="text-center">1</td>
-                      <td class="font-w600"><?php echo date("d-m-Y");?></td>
-                      <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?></td>
-                      <td class="d-none d-sm-table-cell"><?php echo date("h:i:s");?>   </td>
+                      <td class="text-center"><?php echo $index;?></td>
+                      <td class="d-none d-sm-table-cell"><?php echo $item['NIP'];?></td>
+                      <td class="d-none d-sm-table-cell"><?php echo $item['nama_pg'];?></td>
+                      <td class="d-none d-sm-table-cell"><?php echo $item['divisi'];?></td>
+                      <td class="d-none d-sm-table-cell"><?php echo $item['progress']?>   </td>
                       <td class="d-none d-sm-table-cell">
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#poinDetail<?php //echo $id;?>">Poin</button> 
-                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#tskDetail<?php //echo $id;?>">Progress</button> 
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#poinDetail<?php echo $index;?>">Poin</button>
+                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#tskDetail<?php echo $index;?>">Progress</button>
                       </td>
                   </tr>
-                  <div class="modal fade" id="poinDetail<?php //echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="poinDetail<?php echo $index;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -51,29 +54,38 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
+
                         <div class="modal-body">
-                          <?php $this->load->view('form/spv/form_poin');?>
+                          <?php
+                          $data['daftarKategori'] = $daftarKategori;
+                          $data['NIP'] = $item["NIP"];
+                          $this->load->view('form/spv/form_poin',$data);
+                          ?>
                         </div>
+
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="submit" class="btn btn-primary">Save changes</button>
                           <?php echo form_close();?>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="modal fade" id="tskDetail<?php //echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="tskDetail<?php echo $index;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Progress {nama dari DB}</h5>
+                          <h5 class="modal-title" id="exampleModalLabel">Progress <?php echo $item['nama_pg'];?></h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
                         <div class="modal-body">
-                           <?php $this->load->view('spv/v_progress');?>
+                           <?php
+                           $data['item'] = $item;
+                           $this->load->view('spv/v_progress',$data);
+                           ?>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
@@ -81,6 +93,7 @@
                       </div>
                     </div>
                   </div>
+                <?php $index++;endforeach;?>
                   <!-- End Foreach -->
               </tbody>
           </table>

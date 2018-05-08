@@ -1,47 +1,32 @@
-<?php echo form_open('');?>
+<?php echo form_open('Poin/addPoin/'.$NIP); ?>
 <div id="accordion">
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Profesional
-        </a>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body ml-3">
-       <div class="form-check">
-         <input class="form-check-input" type="checkbox" value="10" name="ontime" id="defaultCheck1">
-         <label class="form-check-label" for="defaultCheck1">
-           Bekerja sesuai dengan deadline yang ditentukan
-         </label>
-       </div>
-       <div class="form-check">
-         <input class="form-check-input" type="checkbox" value="10" name="lapor" id="defaultCheck1">
-         <label class="form-check-label" for="defaultCheck1">
-           Memberikan laporan progress sesuai dengan waktu yang ditentukan
-         </label>
-       </div>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Teamwork
-        </a>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body ml-3">
-        <div class="form-check">
-         <input class="form-check-input" type="checkbox" value="10" name="aktif" id="defaultCheck1">
-         <label class="form-check-label" for="defaultCheck1">
-           Memberi saran,  pendapat, dan menjalankan tugas masing-masing ketika bekerja dalam tim
-         </label>
-       </div>
-      </div>
-    </div>
-  </div>
+    <?php $index = 1;$index2 = 1;
+    foreach ($daftarKategori as $kategori):
+        ?>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <a class="btn btn-link collapsed" data-toggle="collapse"
+                       data-target="#collapseTwo<?php echo $index ?>" aria-expanded="false" aria-controls="collapseTwo">
+                        <?php echo $kategori->getNamaKategori(); ?>
+                    </a>
+                </h5>
+            </div>
+
+            <div id="collapseTwo<?php echo $index; ?>" class="collapse" aria-labelledby="headingTwo"
+                 data-parent="#accordion">
+
+                <div class="card-body ml-3">
+                    <?php  foreach ($kategori->getDaftarDetilPoin() as $poin): ?>
+                        <div class="form-check">
+                            <input name = "poin[]"class="form-check-input" type="checkbox" value="<?php echo $poin->getId();?>"  id="defaultCheck<?php echo $index2;?>">
+                            <label class="form-check-label" for="defaultCheck<?php echo $index2;?>">
+                                <?php echo $poin->getKeterangan() . " (" . $poin->getJumlahPoin() . " poin)";$index2++;?>
+                            </label>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+        <?php $index++;endforeach; ?>
 </div>

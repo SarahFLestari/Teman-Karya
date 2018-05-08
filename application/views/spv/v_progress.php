@@ -1,7 +1,7 @@
-<p>Nama Tugas / Projek: {Dari DB}</p>
+<p>Nama Tugas / Projek: <?php echo $item['nama_proyek']?></p>
 <p>Detail Tugas:</p>
 <p>
-	{Diambil dari DB}
+	<?php echo $item['deskripsi'];?>
 </p>
 
 <!-- Untuk bar progress, atribut aria-valuenow diambil dari db -->
@@ -12,7 +12,7 @@
 <!-- Fungsi JQuery untuk update progress -->
 <script src="<?php echo base_url();?>assets/js/core/jquery.min.js"></script>
 <script type="text/javascript">
-    var progres = 85; //ambil dari DB
+    var progres = <?php echo $item['progress']?>; //ambil dari DB
      $('.progress-bar')
      .css({
      	"width": progres + '%',

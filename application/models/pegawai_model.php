@@ -93,8 +93,6 @@ class pegawai_model extends CI_Model
         else {
             $this->jumlah_tugas = $query->result_array()[0]['jum'];
         }
-
-
 //        print_r($query->result_array());
     }
 

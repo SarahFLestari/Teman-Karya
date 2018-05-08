@@ -70,7 +70,7 @@ class Dashboard extends SI_Controller
 
     public function tugas_pgw(){
         $this->db->where("NIP","2018050401");
-        $query = $this->db->query("SELECT * FROM `proyek` JOIN detil_proyek using (id_detilproyek)");
+        $query = $this->db->query("SELECT * FROM `proyek` JOIN detil_proyek using (id_proyek)");
         $daftarTugas = array();
         foreach ($query->result_array() as $item) {
             $tugas = new tugas_model();
