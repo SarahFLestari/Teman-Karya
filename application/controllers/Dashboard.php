@@ -157,4 +157,8 @@ class Dashboard extends SI_Controller
         }
 
     }
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect("Utama");
+    }
 }

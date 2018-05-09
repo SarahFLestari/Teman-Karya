@@ -15,10 +15,12 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/vendor/daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/util.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/style.css">
+
 </head>
 <body>
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('assets/img/bg-01.jpg');">
+		<div class="container-login100 bg">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 				<?php echo form_open($tujuan)?>
 					<div class=" mb-2 text-center">

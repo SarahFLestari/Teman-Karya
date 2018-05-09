@@ -6,10 +6,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'sisfo',
+	'hostname' => 'ramaadtym.info',
+	'username' => 'ramaadty_sisfointegrasi',
+	'password' => 'sisfointegrasi',
+	'database' => 'ramaadty_sisfointegrasi',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

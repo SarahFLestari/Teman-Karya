@@ -69,3 +69,6 @@ div#DataTables_Table_0_filter {
     color:#FFF;
     font-weight:bold;
 }
+.bg{
+    background-image: url('../img/bg-01.jpg')
+}
