@@ -23,11 +23,11 @@
           <table class="table table-bordered table-striped table-vcenter js-dataTable-full mb-10">
               <thead>
                   <tr>
-                      <th class="text-center" style="width: 5%;">No</th>
+                      <th class="text-center" style="width: 1%;">No</th>
                       <th class="text-center" style="width: 3%;">NIP</th>
                       <th style="width: 10%;">Nama Pegawai</th>
                       <th style="width: 10%;">Divisi</th>
-                      <th class="d-none d-sm-table-cell" style="width: 5%;">Progress</th>
+                      <th class="d-none d-sm-table-cell" style="width: 2%;">Progress</th>
                       <th class="d-none d-sm-table-cell" style="width: 10%;">Aksi</th>
                   </tr>
               </thead>
@@ -39,10 +39,11 @@
                       <td class="d-none d-sm-table-cell"><?php echo $item['NIP'];?></td>
                       <td class="d-none d-sm-table-cell"><?php echo $item['nama_pg'];?></td>
                       <td class="d-none d-sm-table-cell"><?php echo $item['divisi'];?></td>
-                      <td class="d-none d-sm-table-cell"><?php echo $item['progress']?>   </td>
+                      <td class="d-none d-sm-table-cell"><?php echo $item['progress']?> %  </td>
                       <td class="d-none d-sm-table-cell">
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#poinDetail<?php echo $index;?>">Poin</button>
-                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#tskDetail<?php echo $index;?>">Progress</button>
+                        <button type="button" class="btn btn-outline-primary" title="Tambah poin" data-toggle="modal" data-target="#poinDetail<?php echo $index;?>"><i class="fa fa-circle-o"></i></button>
+                        <button type="button" class="btn btn-outline-success" title="Progress" data-toggle="modal" data-target="#tskDetail<?php echo $index;?>"><i class="fa fa-bar-chart" aria-hidden="true"></i></button>
+                         <button type="button" title="Tambah Tugas" class="btn btn-outline-danger" data-toggle="modal" data-target="#tsk<?php echo $index;?>"><i class="fa fa-plus" aria-hidden="true"></i></button>
                       </td>
                   </tr>
                   <div class="modal fade" id="poinDetail<?php echo $index;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -71,8 +72,7 @@
                       </div>
                     </div>
                   </div>
-
-                  <div class="modal fade" id="tskDetail<?php echo $index;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   <div class="modal fade" id="tskDetail<?php echo $index;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -93,6 +93,31 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="modal fade" id="tsk<?php echo $index;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Tambah tugas untuk <?php echo $item['nama_pg'];?></h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                           <?php
+                           $data['item'] = $item;
+                           $this->load->view('spv/v_assign',$data);
+                           ?>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-outline-info">Submit</button>
+                          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                          <?php echo form_close();?>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+     
                 <?php $index++;endforeach;?>
                   <!-- End Foreach -->
               </tbody>
