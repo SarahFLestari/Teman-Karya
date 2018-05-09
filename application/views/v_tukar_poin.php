@@ -36,18 +36,18 @@
                 </div>
             </div>
         </div>
-
+        <div class="row gutters-tiny  mb-10">
         <?php $index = 0; foreach ($daftarPenawaran as $item) :?>
 
-        <?php if ($index % 3 == 0):?>
-        <div class="row gutters-tiny  mb-10">
-        <?php endif;?>
+        <?php //if ($index % 3 == 0):?>
+        
+        <?php //endif;?>
             <div class="col-3 col-md-3 col-xl-3 mr-10">
                 <div class="block">
                     <div class="block-header block-header-default">
-                        <h3 class="block-title"><?php echo $item->getNamaPenawaran();?></h3>
+                        <h3 class="block-title nawar"><?php echo $item->getNamaPenawaran();?></h3>
                     </div>
-                    <div class="block-content">
+                    <div class="block-content itempts">
                         <p><?php echo $item->getDeskripsi();?></p>
                         <a href="<?php echo base_url();?>Poin/tukarPoin/<?php echo $item->getId()?>"  class="btn btn-outline-info min-width-125 mb-10">Tukar poin mu Sekarang</a>
                     </div>
@@ -56,13 +56,14 @@
                     </div>
                 </div>
             </div>
-        <?php if ($index % 3 == 0 and $index > 2):?>
-        </div>
-        <?php endif;?>
+        <?php //if ($index % 3 == 0 and $index > 2):?>
+       
+        <?php //endif;?>
         <?php $index++;endforeach;?>
-        <?php if ($index % 3 != 0 and $index > 2):?>
+        <?php //if ($index % 3 != 0 and $index > 2):?>
+         </div>
         </div>
-        <?php endif;?>
+        <?php //endif;?>
 
 
     </div>

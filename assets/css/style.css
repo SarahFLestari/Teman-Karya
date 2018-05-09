@@ -72,3 +72,9 @@ div#DataTables_Table_0_filter {
 .bg{
     background-image: url('../img/bg-01.jpg')
 }
+.itempts{
+    height: 167px;
+}
+.block-title.nawar{
+    font-size: 12px;
+}
